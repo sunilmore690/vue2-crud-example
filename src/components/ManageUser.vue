@@ -1,18 +1,26 @@
 <template>
-  <div>
-    <AddUserForm :userdata.sync="user" @adduser="handleAddUser" />
+  <div class="">
+    <div class="row">
+      <AddUserForm
+        class="col-sm-6 col-offset-3"
+        :userdata.sync="user"
+        @adduser="handleAddUser"
+      />
+    </div>
+
     <UserList @edituser="handleEdit" @removeuser="removeUser" :users="users" />
   </div>
 </template>
 <script>
+import AddUserForm from "./AddUserForm.vue";
+import UserList from "./UserList.vue";
 const userDefaultValue = {
   name: "",
   age: 0,
   sex: "",
   city: "",
 };
-import AddUserForm from "./AddUserForm";
-import UserList from "./UserList";
+
 export default {
   data() {
     return {
@@ -29,7 +37,7 @@ export default {
   updated() {
     // console.log("Login component updated", this.user);
   },
-  computed: {},
+
   methods: {
     handleAddUser(user) {
       if (user.id) {

@@ -12,6 +12,9 @@ export default {
   components: {
     ManageUser,
   },
+  async mounted() {
+    await this.$store.dispatch("getUsers");
+  },
 };
 </script>
 
